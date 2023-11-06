@@ -1,0 +1,8 @@
+*         text=auto
+
+*.html    text diff=html
+*.css     text
+*.js      text
+*.vtt     text
+
+*.mov     binary
