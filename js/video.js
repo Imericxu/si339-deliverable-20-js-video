@@ -7,7 +7,7 @@ const volumeLbl = document.getElementById("volume");
 // Play the video and display the volume on click
 playBtn.addEventListener("click", () => {
   video.play();
-  volumeLbl.innerHTML = volumeSlider.value + "%";
+  volumeLbl.innerHTML = Math.round(video.volume * 100) + "%";
 });
 
 const pauseBtn = document.getElementById("pause");
@@ -51,12 +51,12 @@ muteBtn.addEventListener("click", () => {
 
 // Update volume when slider changes
 volumeSlider.addEventListener("change", () => {
-  // Update volume label. Don't update if video is paused
-  if (video.paused) return;
-  volumeLbl.innerHTML = volumeSlider.value + "%";
-
   // Update volume
   video.volume = volumeSlider.value / 100;
+
+  // Update volume label. Don't update if video is paused
+  if (video.paused) return;
+  volumeLbl.innerHTML = Math.round(video.volume * 100) + "%";
 });
 
 const oldSchoolBtn = document.getElementById("vintage");
