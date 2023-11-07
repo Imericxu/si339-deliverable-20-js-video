@@ -15,7 +15,6 @@ const pauseBtn = document.getElementById("pause");
 pauseBtn.addEventListener("click", () => {
   // Pause the video and clear the volume information
   video.pause();
-  volumeLbl.innerHTML = "";
 });
 
 const slowerBtn = document.getElementById("slower");
@@ -53,9 +52,6 @@ muteBtn.addEventListener("click", () => {
 volumeSlider.addEventListener("change", () => {
   // Update volume
   video.volume = volumeSlider.value / 100;
-
-  // Update volume label. Don't update if video is paused
-  if (video.paused) return;
   volumeLbl.innerHTML = Math.round(video.volume * 100) + "%";
 });
 
